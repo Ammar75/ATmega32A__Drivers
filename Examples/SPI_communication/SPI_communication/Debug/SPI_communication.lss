@@ -1,0 +1,320 @@
+
+SPI_communication.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         0000015e  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00800060  0000015e  000001d2  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .stab         000006cc  00000000  00000000  000001d4  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  3 .stabstr      00000085  00000000  00000000  000008a0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_aranges 000000a0  00000000  00000000  00000928  2**3
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   000004e7  00000000  00000000  000009c8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 0000015a  00000000  00000000  00000eaf  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   0000030c  00000000  00000000  00001009  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  000000f0  00000000  00000000  00001318  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    0000016f  00000000  00000000  00001408  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    000001f2  00000000  00000000  00001577  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+   8:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+   c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  10:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  14:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  18:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  1c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  20:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  24:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  28:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  2c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  30:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  34:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  38:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  3c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  40:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  44:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  48:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  4c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  50:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d8 e0       	ldi	r29, 0x08	; 8
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+
+00000060 <__do_copy_data>:
+  60:	10 e0       	ldi	r17, 0x00	; 0
+  62:	a0 e6       	ldi	r26, 0x60	; 96
+  64:	b0 e0       	ldi	r27, 0x00	; 0
+  66:	ee e5       	ldi	r30, 0x5E	; 94
+  68:	f1 e0       	ldi	r31, 0x01	; 1
+  6a:	02 c0       	rjmp	.+4      	; 0x70 <__do_copy_data+0x10>
+  6c:	05 90       	lpm	r0, Z+
+  6e:	0d 92       	st	X+, r0
+  70:	a0 36       	cpi	r26, 0x60	; 96
+  72:	b1 07       	cpc	r27, r17
+  74:	d9 f7       	brne	.-10     	; 0x6c <__do_copy_data+0xc>
+
+00000076 <__do_clear_bss>:
+  76:	10 e0       	ldi	r17, 0x00	; 0
+  78:	a0 e6       	ldi	r26, 0x60	; 96
+  7a:	b0 e0       	ldi	r27, 0x00	; 0
+  7c:	01 c0       	rjmp	.+2      	; 0x80 <.do_clear_bss_start>
+
+0000007e <.do_clear_bss_loop>:
+  7e:	1d 92       	st	X+, r1
+
+00000080 <.do_clear_bss_start>:
+  80:	a0 36       	cpi	r26, 0x60	; 96
+  82:	b1 07       	cpc	r27, r17
+  84:	e1 f7       	brne	.-8      	; 0x7e <.do_clear_bss_loop>
+  86:	0e 94 ac 00 	call	0x158	; 0x158 <main>
+  8a:	0c 94 ad 00 	jmp	0x15a	; 0x15a <_exit>
+
+0000008e <__bad_interrupt>:
+  8e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000092 <SPI_MasterInit>:
+#define SCK  PB7
+
+// ================= MASTER =================
+void SPI_MasterInit(void) {
+    // Set MOSI, SCK, and SS as outputs
+    DDRB |= (1 << MOSI) | (1 << SCK) | (1 << SS);
+  92:	87 b3       	in	r24, 0x17	; 23
+  94:	80 6b       	ori	r24, 0xB0	; 176
+  96:	87 bb       	out	0x17, r24	; 23
+    // Enable SPI in Master mode, fosc/16
+	SPCR = (1 << SPE) | (1 << MSTR) | (1 << SPR0);
+  98:	81 e5       	ldi	r24, 0x51	; 81
+  9a:	8d b9       	out	0x0d, r24	; 13
+	PORTB |= (1 << SS);  // Deselect slave initially
+  9c:	c4 9a       	sbi	0x18, 4	; 24
+
+}
+  9e:	08 95       	ret
+
+000000a0 <SPI_MasterTransmit>:
+
+unsigned char SPI_MasterTransmit(unsigned char data) {
+	PORTB &= ~(1 << SS);
+  a0:	c4 98       	cbi	0x18, 4	; 24
+    SPDR = data;  // Load data
+  a2:	8f b9       	out	0x0f, r24	; 15
+    while (!(SPSR & (1 << SPIF)));  // Wait for completion
+  a4:	77 9b       	sbis	0x0e, 7	; 14
+  a6:	fe cf       	rjmp	.-4      	; 0xa4 <SPI_MasterTransmit+0x4>
+    return SPDR;  // Return received byte
+  a8:	8f b1       	in	r24, 0x0f	; 15
+}
+  aa:	08 95       	ret
+
+000000ac <SPI_MasterSendString>:
+
+void SPI_MasterSendString(const char *str) {
+  ac:	cf 93       	push	r28
+  ae:	df 93       	push	r29
+  b0:	ec 01       	movw	r28, r24
+    PORTB &= ~(1 << SS);  // Select slave (SS low)
+  b2:	c4 98       	cbi	0x18, 4	; 24
+
+    while (*str) {
+  b4:	88 81       	ld	r24, Y
+  b6:	88 23       	and	r24, r24
+  b8:	31 f0       	breq	.+12     	; 0xc6 <SPI_MasterSendString+0x1a>
+    SPDR = data;  // Load data
+    while (!(SPSR & (1 << SPIF)));  // Wait for completion
+    return SPDR;  // Return received byte
+}
+
+void SPI_MasterSendString(const char *str) {
+  ba:	21 96       	adiw	r28, 0x01	; 1
+    PORTB &= ~(1 << SS);  // Select slave (SS low)
+
+    while (*str) {
+        SPI_MasterTransmit(*str++);
+  bc:	0e 94 50 00 	call	0xa0	; 0xa0 <SPI_MasterTransmit>
+}
+
+void SPI_MasterSendString(const char *str) {
+    PORTB &= ~(1 << SS);  // Select slave (SS low)
+
+    while (*str) {
+  c0:	89 91       	ld	r24, Y+
+  c2:	88 23       	and	r24, r24
+  c4:	d9 f7       	brne	.-10     	; 0xbc <SPI_MasterSendString+0x10>
+        SPI_MasterTransmit(*str++);
+ // Optional delay for simulation/debug
+    }
+    SPI_MasterTransmit('\0');  // Send null terminator
+  c6:	80 e0       	ldi	r24, 0x00	; 0
+  c8:	0e 94 50 00 	call	0xa0	; 0xa0 <SPI_MasterTransmit>
+
+    PORTB |= (1 << SS);  // Deselect slave
+  cc:	c4 9a       	sbi	0x18, 4	; 24
+}
+  ce:	df 91       	pop	r29
+  d0:	cf 91       	pop	r28
+  d2:	08 95       	ret
+
+000000d4 <SPI_MasterReceiveString>:
+
+void SPI_MasterReceiveString(char *buffer) {
+  d4:	0f 93       	push	r16
+  d6:	1f 93       	push	r17
+  d8:	cf 93       	push	r28
+  da:	8c 01       	movw	r16, r24
+    PORTB &= ~(1 << SS);  // Select slave (SS low)
+  dc:	c4 98       	cbi	0x18, 4	; 24
+
+    uint8_t i = 0;
+  de:	c0 e0       	ldi	r28, 0x00	; 0
+    char received;
+    do {
+        received = SPI_MasterTransmit(0xFF);  // Send dummy to read
+  e0:	8f ef       	ldi	r24, 0xFF	; 255
+  e2:	0e 94 50 00 	call	0xa0	; 0xa0 <SPI_MasterTransmit>
+        buffer[i++] = received;
+  e6:	f8 01       	movw	r30, r16
+  e8:	ec 0f       	add	r30, r28
+  ea:	f1 1d       	adc	r31, r1
+  ec:	80 83       	st	Z, r24
+  ee:	cf 5f       	subi	r28, 0xFF	; 255
+    } while (received != '\0');
+  f0:	88 23       	and	r24, r24
+  f2:	b1 f7       	brne	.-20     	; 0xe0 <SPI_MasterReceiveString+0xc>
+}
+  f4:	cf 91       	pop	r28
+  f6:	1f 91       	pop	r17
+  f8:	0f 91       	pop	r16
+  fa:	08 95       	ret
+
+000000fc <SPI_SlaveInit>:
+
+
+
+// ================= SLAVE =================
+void SPI_SlaveInit(void) {
+	SPCR = (1 << SPE);    // Enable SPI (slave mode)
+  fc:	80 e4       	ldi	r24, 0x40	; 64
+  fe:	8d b9       	out	0x0d, r24	; 13
+    DDRB |= (1 << MISO);  // Set MISO as output
+ 100:	be 9a       	sbi	0x17, 6	; 23
+    
+
+}
+ 102:	08 95       	ret
+
+00000104 <SPI_SlaveTransmit>:
+
+unsigned char SPI_SlaveTransmit(unsigned char data) {
+    SPDR = data;  // Load data to send
+ 104:	8f b9       	out	0x0f, r24	; 15
+    while (!(SPSR & (1 << SPIF)));  // Wait for transmission
+ 106:	77 9b       	sbis	0x0e, 7	; 14
+ 108:	fe cf       	rjmp	.-4      	; 0x106 <SPI_SlaveTransmit+0x2>
+    return SPDR;  // Return received byte
+ 10a:	8f b1       	in	r24, 0x0f	; 15
+}
+ 10c:	08 95       	ret
+
+0000010e <SPI_SlaveReceiveString>:
+
+void SPI_SlaveReceiveString(char *buffer) {
+ 10e:	0f 93       	push	r16
+ 110:	1f 93       	push	r17
+ 112:	cf 93       	push	r28
+ 114:	8c 01       	movw	r16, r24
+    uint8_t i = 0;
+ 116:	c0 e0       	ldi	r28, 0x00	; 0
+    char received;
+    do {
+        received = SPI_SlaveTransmit(0xFF);  // Send dummy, receive data
+ 118:	8f ef       	ldi	r24, 0xFF	; 255
+ 11a:	0e 94 82 00 	call	0x104	; 0x104 <SPI_SlaveTransmit>
+        buffer[i++] = received;
+ 11e:	f8 01       	movw	r30, r16
+ 120:	ec 0f       	add	r30, r28
+ 122:	f1 1d       	adc	r31, r1
+ 124:	80 83       	st	Z, r24
+ 126:	cf 5f       	subi	r28, 0xFF	; 255
+    } while (received != '\0');
+ 128:	88 23       	and	r24, r24
+ 12a:	b1 f7       	brne	.-20     	; 0x118 <SPI_SlaveReceiveString+0xa>
+}
+ 12c:	cf 91       	pop	r28
+ 12e:	1f 91       	pop	r17
+ 130:	0f 91       	pop	r16
+ 132:	08 95       	ret
+
+00000134 <SPI_SlaveSendString>:
+
+void SPI_SlaveSendString(const char *str) {
+ 134:	cf 93       	push	r28
+ 136:	df 93       	push	r29
+ 138:	ec 01       	movw	r28, r24
+    while (*str) {
+ 13a:	88 81       	ld	r24, Y
+ 13c:	88 23       	and	r24, r24
+ 13e:	31 f0       	breq	.+12     	; 0x14c <SPI_SlaveSendString+0x18>
+        received = SPI_SlaveTransmit(0xFF);  // Send dummy, receive data
+        buffer[i++] = received;
+    } while (received != '\0');
+}
+
+void SPI_SlaveSendString(const char *str) {
+ 140:	21 96       	adiw	r28, 0x01	; 1
+    while (*str) {
+        SPI_SlaveTransmit(*str++);
+ 142:	0e 94 82 00 	call	0x104	; 0x104 <SPI_SlaveTransmit>
+        buffer[i++] = received;
+    } while (received != '\0');
+}
+
+void SPI_SlaveSendString(const char *str) {
+    while (*str) {
+ 146:	89 91       	ld	r24, Y+
+ 148:	88 23       	and	r24, r24
+ 14a:	d9 f7       	brne	.-10     	; 0x142 <SPI_SlaveSendString+0xe>
+        SPI_SlaveTransmit(*str++);
+         // Optional delay for sync/debug
+    }
+    SPI_SlaveTransmit('\0');  // Send null terminator
+ 14c:	80 e0       	ldi	r24, 0x00	; 0
+ 14e:	0e 94 82 00 	call	0x104	; 0x104 <SPI_SlaveTransmit>
+}
+ 152:	df 91       	pop	r29
+ 154:	cf 91       	pop	r28
+ 156:	08 95       	ret
+
+00000158 <main>:
+
+
+#include <avr/io.h>
+
+int main(void)
+{
+ 158:	ff cf       	rjmp	.-2      	; 0x158 <main>
+
+0000015a <_exit>:
+ 15a:	f8 94       	cli
+
+0000015c <__stop_program>:
+ 15c:	ff cf       	rjmp	.-2      	; 0x15c <__stop_program>

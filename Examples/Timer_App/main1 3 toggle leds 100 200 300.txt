@@ -1,0 +1,60 @@
+/*
+ * Timer_App.c
+ *
+ * Created: 6/23/2025 12:16:25 AM
+ *  Author: Ammar
+ */ 
+
+
+#include <avr/io.h>
+#include "avr/interrupt.h"
+#include "std_macros.h"
+#include "DIO.h"
+volatile unsigned char count = 0;
+volatile unsigned char count1 = 0;
+volatile unsigned int count2 = 0;
+int main(void)
+{	
+	Dio_VSet_pin_Dir('a',0,"output");
+	Dio_VSet_pin_Dir('a',1,"output");
+	Dio_VSet_pin_Dir('a',2,"output");
+	// set mode
+	SET_BIT(TCCR0_,3);
+	CLEAR_BIT(TCCR0_,6);
+	// set prescaler = 1024
+	SET_BIT(TCCR0_,0);
+	CLEAR_BIT(TCCR0_,1);
+	SET_BIT(TCCR0_,2);
+	// set compare value
+	OCR0_ = 78;
+	// enable interrupt
+	sei();
+	SET_BIT(TIMSK_,1);
+    while(1)
+    {
+        //TODO:: Please write your application code 
+	
+	if (count == 100)
+		{
+			DIO_vToggle('a',0);
+			count = 0;
+		}
+	if (count1 == 200)
+	{
+		DIO_vToggle('a',1);
+		count1 = 0;
+	}
+	if (count2 == 300)
+	{
+		DIO_vToggle('a',2);
+		count2 = 0;
+	}
+	}
+}
+
+ISR(TIMER0_COMP_vect)
+{
+	count++;
+	count1++;
+	count2++;
+}

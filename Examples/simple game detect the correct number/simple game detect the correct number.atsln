@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Atmel Studio Solution File, Format Version 11.00
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "simple game detect the correct number", "simple game detect the correct number\simple game detect the correct number.cproj", "{66B39395-1410-47D1-8B52-7EBFC3359D1D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AVR = Debug|AVR
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{66B39395-1410-47D1-8B52-7EBFC3359D1D}.Debug|AVR.ActiveCfg = Debug|AVR
+		{66B39395-1410-47D1-8B52-7EBFC3359D1D}.Debug|AVR.Build.0 = Debug|AVR
+		{66B39395-1410-47D1-8B52-7EBFC3359D1D}.Release|AVR.ActiveCfg = Release|AVR
+		{66B39395-1410-47D1-8B52-7EBFC3359D1D}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

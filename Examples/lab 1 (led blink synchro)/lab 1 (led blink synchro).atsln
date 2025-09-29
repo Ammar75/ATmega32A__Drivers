@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Atmel Studio Solution File, Format Version 11.00
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "lab 1 (led blink synchro)", "lab 1 (led blink synchro)\lab 1 (led blink synchro).cproj", "{3E1A72E2-4A6D-4D53-AFFC-2BFD2695D7ED}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AVR = Debug|AVR
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3E1A72E2-4A6D-4D53-AFFC-2BFD2695D7ED}.Debug|AVR.ActiveCfg = Debug|AVR
+		{3E1A72E2-4A6D-4D53-AFFC-2BFD2695D7ED}.Debug|AVR.Build.0 = Debug|AVR
+		{3E1A72E2-4A6D-4D53-AFFC-2BFD2695D7ED}.Release|AVR.ActiveCfg = Release|AVR
+		{3E1A72E2-4A6D-4D53-AFFC-2BFD2695D7ED}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
